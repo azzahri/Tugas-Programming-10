@@ -8,14 +8,19 @@ public class objectdestroy : MonoBehaviour
     public Text scoreText;
     int score;
 
-    private void OnCollisionEnter2D(Collision2D collision)
+     void OnCollisionEnter2D(Collision2D collision)
     {
          if (collision.collider.CompareTag("Enemy"))
          {
             Destroy(collision.gameObject);
             score++;
+            collision.gameObject.SetActive(false);
+
+
          }
     }
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -28,4 +33,6 @@ public class objectdestroy : MonoBehaviour
     {
         scoreText.text = score.ToString();
     }
+
+    
 }

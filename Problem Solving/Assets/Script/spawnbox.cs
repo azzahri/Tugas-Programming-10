@@ -13,26 +13,38 @@ public class spawnbox : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        //    SpawnObject();
+        //Invoke("SpawnObject", 2);
+        
         InvokeRepeating("SpawnObject", time, repeattime);
+
+
     }
 
-    Vector2 GetSpawnPoint()
+
+    Vector3 GetSpawnPoint()
     {
+
         float x = Random.Range(-range, range);
         float y = Random.Range(-range, range);
 
-        return new Vector2(x, y);
+
+        return new Vector2(x, y);       
     }
 
     void SpawnObject()
     {
-        Instantiate(boxSpawn, GetSpawnPoint(), Quaternion.identity, transform);
-
+    //    Invoke("SpawnObject", 2);
+        Instantiate(boxSpawn, GetSpawnPoint(), Quaternion.identity);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
+
+
+
 }
