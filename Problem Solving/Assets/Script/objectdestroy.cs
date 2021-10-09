@@ -8,6 +8,8 @@ public class objectdestroy : MonoBehaviour
     public Text scoreText;
     int score;
 
+    public GameObject blood;
+
      void OnCollisionEnter2D(Collision2D collision)
     {
          if (collision.collider.CompareTag("Enemy"))
@@ -16,6 +18,7 @@ public class objectdestroy : MonoBehaviour
             score++;
             collision.gameObject.SetActive(false);
 
+            Instantiate(blood, transform.position, Quaternion.identity);
 
          }
     }
